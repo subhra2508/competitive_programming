@@ -1,3 +1,3 @@
 # competitive_programming
-This repository contains competitive programming questions and it's answers 😀
+This repository contains datastructures ,algorithms, competitive programming questions and it's answers 😀
 
