@@ -1,43 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-int minOperations(int a,int b){ 
-    int count=INT_MAX;
-    int firstB=b;
-    while(1){
-        int ans=countCheckB(b);
-        int countMin=ans+b-firstB;
-        if(countMin<=count){
-            count=countMin;
-            b++;
-        }
-        else{
-            break;
-        }
-    }
-    return count;
-}
 int main(){
-    int t;
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+#endif
+   ll t;
     cin>>t;
     while(t--){
-        int a,b;
+       ll a,b;
         cin>>a>>b;
-        if(a==b){
-            cout<<2<<endl;
-        }
-        else if(a<b){
-            cout<<1<<endl;
-        }
-        else{
-            int ans=0;
-            if(b==1){
-               b=b+1;
-               ans++;
+       ll res=INT_MAX;
+       ll count;
+        for(ll i=0;i*i<=a;i++){
+            if(b==1&&i==0){
+                continue;
             }
             else{
-                ans+=minOperations(a,b);
+                count=i;
+               ll c=a;
+                while(c){
+                    c/=(b+i);
+                    count++;
+                }
+                res=min(res,count);
+
             }
         }
+        cout<<res<<endl;
+        
     }
 }
